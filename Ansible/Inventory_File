@@ -1,0 +1,29 @@
+# Inventory file
+appserver:
+  hosts:
+    34.216.221.202:
+      ansible_user: ubuntu
+      ansible_ssh_private_key_file: /tmp/classkey.pem
+
+webserver:
+  hosts:
+    54.245.145.130:
+      ansible_user: ubuntu
+      ansible_ssh_private_key_file: /tmp/classkey.pem
+
+your_target_group:
+  vars:
+    group_custom_variable: "Group Value" 
+
+
+#########################################
+You can then use these group variables in your playbook:
+   ```yaml
+   - name: Use external group variable
+     hosts: appserver
+     tasks:
+       - name: Display the group variable
+         debug:
+           var: group_custom_variable
+   ```
+   Here, `group_custom_variable` is an external variable defined for the group.

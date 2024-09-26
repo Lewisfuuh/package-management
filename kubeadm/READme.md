@@ -76,6 +76,9 @@ sudo su - ubuntu
 sudo modprobe br_netfilter
 sudo kubeadm init
 ```
+## Note
+Please copy the join command and save it in your notepad. 
+You will need the join command to join all the worker notes
 
 ## Step 4. Make .kube directory and copy to $HOME/.kube/config
 ```sh
@@ -126,7 +129,7 @@ sudo -i
 On both the master and worker nodes, ensure your system packages are up-to-date:
 
 ```bash
-sudo apt update
+sudo apt update -y
 sudo apt upgrade -y
 ```
 

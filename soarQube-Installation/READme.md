@@ -40,43 +40,41 @@ sudo service sshd restart
 ``` sh
 cd /opt
 sudo yum -y install unzip wget git
-sudo yum install  java-11-openjdk-devel
-```
-### Alternatively install java-17-openjdk-devel
-
-```sh
 sudo yum install java-17-openjdk-devel
 ```
 ### 4. Download and extract the SonarqQube Server software.
-```sh
-sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.8.zip
-sudo unzip sonarqube-7.8.zip
-sudo rm -rf sonarqube-7.8.zip
-sudo mv sonarqube-7.8 sonarqube
-```
-### Alternate version
-```sh
-sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-10.1.0.73491.zip
-sudo unzip sonarqube-10.1.0.73491.zip
-sudo rm -rf sonarqube-10.1.0.73491.zip
-```
 
+###  Version - this version works - August 9, 2024
+```sh
+sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.1.0.47736.zip
+sudo unzip sonarqube-9.1.0.47736.zip
+sudo rm -rf sonarqube-9.1.0.47736.zip
+```
+###  Version - this version works - August 10, 2024 in class
+```sh
+sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-10.3.0.82913.zip
+sudo unzip sonarqube-10.3.0.82913.zip
+sudo rm -rf sonarqube-10.3.0.82913.zip
+```
 
 ## 5. Grant file permissions for sonar user to start and manage sonarQube
 ```sh
+sudo mv sonarqube-10.3.0.82913 /opt/sonarqube
 sudo chown -R sonar:sonar /opt/sonarqube/
 sudo chmod -R 775 /opt/sonarqube/
 ```
 ### 6. start sonarQube server
+### Note: Don't start sonarqube with sudo
 ```sh
-sudo sh /opt/sonarqube/bin/linux-x86-64/sonar.sh start 
-sudo sh /opt/sonarqube/bin/linux-x86-64/sonar.sh status
+sh /opt/sonarqube/bin/linux-x86-64/sonar.sh start 
+sh /opt/sonarqube/bin/linux-x86-64/sonar.sh status
 ```
 
 ### 7. Ensure that SonarQube is running and Access sonarQube on the browser
-# sonarqube default port is = 9000
-# get the sonarqube public ip address 
-# publicIP:9000
+### sonarqube default port is = 9000
+### get the sonarqube public ip address 
+### publicIP:9000
+
 ```sh
 curl -v localhost:9000
 54.236.232.85:9000

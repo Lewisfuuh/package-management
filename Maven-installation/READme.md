@@ -15,15 +15,16 @@
 ```sh
 sudo hostnamectl set-hostname maven
 sudo su - ubuntu
+sudo chown -R ubuntu:ubuntu /opt   
 cd /opt
-sudo apt-get install wget nano tree unzip git-all -y
+sudo apt-get install wget vim tree unzip git-all -y
 sudo apt update
 sudo apt install openjdk-8-jdk -y
 java -version
 ```
 ### Set the JAVA_HOME environment variable by opening the .bashrc file:
 ```sh
-nano ~/.bashrc
+vim ~/.bashrc
 ```
 
 ## Add the following line to the file:
@@ -76,10 +77,11 @@ git --version
 ``` sh
 #Step1) Download the Maven Software
 #sudo wget https://dlcdn.apache.org/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.zip
-sudo wget https://dlcdn.apache.org/maven/maven-3/3.9.3/binaries/apache-maven-3.9.3-bin.zip
-sudo unzip apache-maven-3.9.3-bin.zip
-sudo rm -rf apache-maven-3.9.3-bin.zip
-sudo mv apache-maven-3.9.3/ maven
+#sudo wget https://dlcdn.apache.org/maven/maven-3/3.9.3/binaries/apache-maven-3.9.3-bin.zip
+sudo wget https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.zip
+sudo unzip apache-maven-3.9.6-bin.zip
+sudo rm -rf apache-maven-3.9.6-bin.zip
+sudo mv apache-maven-3.9.6/ maven
 ```
 
 ## .#Step3) Set Environmental Variable  - For Specific User eg ec2-user
